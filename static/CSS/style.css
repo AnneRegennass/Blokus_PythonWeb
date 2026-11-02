@@ -1,0 +1,278 @@
+body {
+    font-family: 'Playfair Display', sans-serif;
+    background: #B8E7E7;
+    color : #333;
+    line-height : 1.6;
+    padding: 20px;
+}
+
+/*Bandeau*/
+.bandeau {
+    height: 35px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2C887C;
+    color : #fff;
+    padding: 10px 0;
+    width: 100%;
+    box-shadow: 0px 2px 8px 2px #2C887C;
+}
+.bandeau_inner{margin-top: 1px;}
+.bandeau_titre .bandeau_retourArriere {
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+}
+.bandeau_titre {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-color: white;
+    border-radius: 3px;
+    border-style:outset;
+    padding: 0px 8px;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+.bandeau_retourArriere {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-left: 2px #2C887C;
+    border-right: 2px #2C887C;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #2C887C;
+    width: 100%;
+    box-shadow: 0px 2px 8px 2px #2C887C;
+    color: white;
+    font-size: 12px;
+    padding: 10px 20px;
+}
+
+/*Page d'accueil*/
+.accueilButton {
+    display: inline-block; 
+    padding: 10px 20px; 
+    font-size: 24px; 
+    color: white; 
+    background-color: #1C6043; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    text-align: center; 
+    text-decoration: none; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    margin: 40px
+}
+.accueilButton:hover {
+    background-color: #1C6043; 
+    transform: scale(1.05);
+    color:white;
+}
+
+/*Règles données à l'accueil*/
+.rules h1, .infoPartie h1{
+    text-align: center; 
+    color:rgba(0, 0, 0, 0.7); 
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.7);
+    transition: font-size 0.6s ease;
+}
+.rules h1:hover, .infoPartie h1:hover{
+    font-size: 30px;
+}
+.rules .div1, .rules .div2{
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 49%;
+    margin: 5px;
+    padding: 10px 35px;
+    background-color: #A5DCD7 ;
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px;
+    transition: transform 0.6s ease, text-shadow 0.3s ease;
+}
+.rules .div1:hover, .rules .div2:hover{transform: scale(1.025);}
+
+/*Tous les lobbys qui récupère des informations de partie*/
+.infoPartie {margin-top: 100px;}
+.formInfoPartie{
+    padding: 20px 20px;
+    text-align: center;
+    justify-content: center; 
+    border-radius: 5px;
+    border-color: #1C6043;
+    border-style:double;
+    border-width: 15px;
+    font-size: 25px;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.formInfoPartie input{
+    margin-top: 10px;
+    padding: 5px 20px; 
+    font-size: 15px;  
+}
+.formInfoPartie button{
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+.formInfoPartie button:hover{
+    background-color: #B3B3B3; 
+    transform: scale(1.05);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.eye-icon{cursor:pointer;}
+
+/*lobby_admin.html / historique.html*/
+.lobby{
+    padding-top: 50px;
+    display: grid;
+    justify-content: center; 
+    align-items: center; 
+}
+.lobby table{
+    border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    letter-spacing: 1px;
+}
+.lobby table th, .lobby table td {
+    border: 3px solid rgba(0, 0, 0, 0.7);
+    padding: 10px 15px;
+    text-align: center;
+}
+.tableTitle, .lobby thead{
+    background-color: #1C6043;
+    font-size: 25px;
+    color:white;
+}
+.tablePlayers, .lobby tbody{
+    background-color: #A5DCD7;
+    font-size: 20px;
+}
+.lobby button{
+    padding: 10px 20px; 
+    font-size: 15px; 
+    color: white; 
+    background-color: #1C6043; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    text-align: center; 
+    text-decoration: none; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    margin: 10px;
+}
+.lobby button:hover{
+    background-color: #1C6043; 
+    transform: scale(1.05);
+    color:white;
+}
+
+
+/*Fin de partie*/
+.infosFinPartie{
+    padding: 20px 20px;
+    display: grid;
+    text-align: center;
+    justify-content: center; 
+    align-items: center;
+    border-radius: 5px;
+    border-color: white;
+    border-style:double;
+    border-width: 15px;
+    font-size: 20px;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.infosFinPartie h2{
+    color: rgba(0, 0, 0, 0.7);
+}
+.infosFinPartie table{
+    border-collapse: collapse;
+    letter-spacing: 1px;
+}
+.infosFinPartie table th, .infosFinPartie table td {
+    border: 3px solid rgba(0, 0, 0, 0.7);
+    padding: 10px 15px;
+    text-align: center;
+}
+.infosFinPartie thead{
+    background-color: #1C6043;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+.infosFinPartie tbody{
+    background-color: #A5DCD7;
+    font-size: 20px;
+}
+.resultEncadre{
+    display: inline-block;  /* Change le comportement pour qu'il soit en bloc mais en ligne */
+    padding: 2px 2px;      /* Ajoute de l'espace autour du texte */
+    border: 2px solid rgb(7, 55, 63); /* Crée un cadre autour du texte */
+}
+
+/*Basard*/
+
+.informations{
+    position: fixed;
+    padding-left: 20px;
+}
+.informations h4{padding-left: 35px;}
+.informations .div1, .informations .div2{
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px 25px;
+    font-size: 15px;
+}
+
+.titre {
+    margin-top: 120px;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 20vh; 
+}
+
+hr {
+    width: 80%;
+    color: #2C887C;
+    height: 5px;
+    background-color: #2C887C;
+    border:none;
+}
+
+.gras{font-weight: bold;}
+.italique{font-style: italic; font-size: 13px;}
+.souligne{text-decoration: underline;}
+.rouge{color: red;}
+.bleu{color: blue;}
+.jaune{color:yellow;}
+.vert{color: green;}

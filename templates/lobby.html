@@ -1,0 +1,74 @@
+<head>
+    <title>LOBBY BLOCKUS</title>
+    <link rel="icon" href="{{ url_for('static', filename='/icon/icon.png') }}" type="image/png">
+</head>
+<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+<body>
+    <h1>SUPERBE PARTIE DE BLOCKUS</h1>
+    <table border="1" id="tupleTable">
+        <tr>
+            <th>VOUS ETES UN JOUEUR</th>
+        </tr>
+    </table>
+
+    <script>
+        const idgame = "{{ idgame }}"
+        function fetchData() {
+            launch()
+            // Envoie une requête pour avoir le json
+            fetch(`/getdatagame/${idgame}`)
+            // Transforme pour traiter la requête
+                .then(response => response.json())
+                .then(data => {
+                    // Cherche la table html
+                    const table = document.getElementById('tupleTable');
+                    table.innerHTML = `
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    `; // L'intérieur de la table, c'est ce que précède
+                    data.forEach(([name]) => {
+                        // Donne une nouvelle ligne
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<td>${name}</td>`;
+                        // Rajoute dans la table la nouvelle ligne
+                        table.appendChild(row); 
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+        function launch(){
+            fetch(`/getdatalaunch/${idgame}`)
+                .then(response =>response.json())
+                .then(data => {if (data !== -1) {
+                        // Redirige si il y a pas un -1
+                        window.location.href = `/grille/${idgame}`; 
+                    }})
+            .catch(error => console.error('Erreur sur les données :', error));
+                
+        }
+        const socket = io();
+        socket.on('connect', () => {
+            socket.emit('join_room', { room: idgame })
+        });
+        socket.on('new_player', (data) =>{
+            const son = new Audio('{{ url_for("static", filename="sounds/blipW.wav") }}');
+            son.play();
+            fetchData();
+        })
+        socket.on('launch',(data) =>{
+            launch();
+        })
+
+    </script>
+<script>
+    const son = new Audio('{{ url_for("static", filename="sounds/blipSelect1.wav") }}');
+    // Produit un son lorsqu'on clique sur un bouton
+    document.addEventListener("DOMContentLoaded",()=>{
+        document.querySelectorAll('button').forEach(button =>{
+            button.addEventListener('click',() =>{
+                son.play();
+            });
+        });
+    });
+    </script>
